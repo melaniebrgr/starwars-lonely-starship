@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Starship() {
+export default function Starship(props) {
+  console.log(props);
   return (
     <main>
       <h2>Starship Details</h2>

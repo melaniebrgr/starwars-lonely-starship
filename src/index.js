@@ -10,7 +10,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="starship" component={Starship} />
+      <Route path="starship/:name" component={Starship} />
     </Route>
   </Router>
 ),

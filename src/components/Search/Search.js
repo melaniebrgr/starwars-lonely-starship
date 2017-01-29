@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import List from '../List/List';
+
 import 'whatwg-fetch';
 
 export default class Search extends Component {
@@ -34,11 +37,12 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <label>Search for starship:
+        <label>Search for starship:&nbsp;
           <input onChange={ this.updateStarshipQuery.bind(this) } onKeyPress={ this.handleKeyPress.bind(this) } type="text" placeholder={`e.g. "Death Star"`} />
         </label>
         <button onClick={ this.searchForStarship.bind(this, this.state.starshipQuery) } type="search">Search</button>
-        <div>{this.state.starships.length ? this.state.starships[0].model : "No results"}</div>
+        <h2>Search results:</h2>
+        {this.state.starships.length ? <List starships={this.state.starships} /> : <div>Nothing here...</div>}
       </div>
     );
   }

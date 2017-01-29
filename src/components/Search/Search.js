@@ -8,7 +8,7 @@ export default class Search extends Component {
   constructor() {
     super();
     this.state = {
-      starships: [],
+      starships: null,
       starshipQuery: ""
     }
   }
@@ -18,7 +18,6 @@ export default class Search extends Component {
 
   updateStarshipQuery(e) {
     const query = e.target.value;
-    debugger;
     this.setState({ starshipQuery: query });
   }
 
@@ -34,6 +33,11 @@ export default class Search extends Component {
       .then( responseData => this.setState({ starships: responseData.results }) );
   }
 
+  displayQueryResponce(starships) {
+    const isStarships = starships.length > 0;
+    return isStarships ? <List starships={this.state.starships} /> : <p>{`Sorry, no results found for "${this.state.starshipQuery}"`}</p>;
+  }
+
   render() {
     return (
       <div>
@@ -42,7 +46,7 @@ export default class Search extends Component {
         </label>
         <button onClick={ this.searchForStarship.bind(this, this.state.starshipQuery) } type="search">Search</button>
         <h2>Search results:</h2>
-        {this.state.starships.length ? <List starships={this.state.starships} /> : <div>Nothing here...</div>}
+        {this.state.starships ? this.displayQueryResponce(this.state.starships) : <p>Nothing here yet...</p>}
       </div>
     );
   }

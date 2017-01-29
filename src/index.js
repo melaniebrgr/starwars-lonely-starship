@@ -12,7 +12,7 @@ const Home = () => {
 
 const Starship = () => {
   return (
-    <h1>Starship</h1>
+    <h1>Starship placeholder</h1>
   );
 }
 
@@ -20,7 +20,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="Starship" component={Starship} />
+      <Route path="starship" component={Starship} />
     </Route>
   </Router>
 ),

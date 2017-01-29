@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-import Search from '../Search/Search';
+import Search from '../../components/Search/Search';
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        {this.props.children}
+        <h1>A Guide to the Starships of Star Wars</h1>
         <Search />
+        {this.props.children}
       </div>
     );
   }

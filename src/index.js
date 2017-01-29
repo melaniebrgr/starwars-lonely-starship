@@ -2,19 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './components/App/App';
-
-const Home = () => {
-  return (
-    <h1>Star Wars Starship Homepage</h1>
-  );
-}
-
-const Starship = () => {
-  return (
-    <h1>Starship placeholder</h1>
-  );
-}
+import App from './containers/App/App';
+import Home from './components/Home/Home';
+import Starship from './components/Starship/Starship';
 
 ReactDOM.render((
   <Router history={browserHistory}>

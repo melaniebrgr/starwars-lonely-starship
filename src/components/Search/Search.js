@@ -45,7 +45,7 @@ export default class Search extends Component {
           <input onChange={ this.updateStarshipQuery.bind(this) } onKeyPress={ this.handleKeyPress.bind(this) } type="text" placeholder={`e.g. "Death Star"`} />
         </label>
         <button onClick={ this.searchForStarship.bind(this, this.state.starshipQuery) } type="search">Search</button>
-        <h2>Search results:</h2>
+        <h3>Search results:</h3>
         {this.state.starships ? this.displayQueryResponce(this.state.starships) : <p>Nothing here yet...</p>}
       </div>
     );

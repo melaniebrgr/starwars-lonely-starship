@@ -43,3 +43,10 @@ export default class Starship extends Component {
     return html;
   }
 }
+
+Starship.propTypes = {
+  starships: PropTypes.arrayOf(PropTypes.object),
+  params: React.PropTypes.shape({
+    name: PropTypes.string
+  })
+}

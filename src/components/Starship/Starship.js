@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class Starship extends Component { 
   constructor() {
@@ -15,7 +15,7 @@ export default class Starship extends Component {
   render() {
     let html = <main></main>;
     if (this.props.starships) {
-      let selectedShip = this.props.starships.find( starship => starship.name = this.props.params.name );
+      let selectedShip = this.props.starships.find( starship => starship.name === this.props.params.name );
       html = (
         <main>
           <h2>Starship Details</h2>

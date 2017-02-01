@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import List from '../List/List';
 
@@ -37,4 +37,9 @@ export default class Search extends Component {
       </div>
     );
   }
+}
+
+Search.propTypes = {
+  searchForStarship: PropTypes.func,
+  starships: PropTypes.arrayOf(PropTypes.object)
 }

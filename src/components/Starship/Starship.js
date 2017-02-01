@@ -45,8 +45,10 @@ export default class Starship extends Component {
 }
 
 Starship.propTypes = {
-  starships: PropTypes.arrayOf(PropTypes.object),
   params: React.PropTypes.shape({
     name: PropTypes.string
-  })
+  }),
+  starships: PropTypes.arrayOf(PropTypes.object),
+  searchForStarship: PropTypes.func,
+  updateStarships: PropTypes.func
 }

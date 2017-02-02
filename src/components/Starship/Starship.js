@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 export default class Starship extends Component { 
   constructor() {
@@ -19,24 +21,27 @@ export default class Starship extends Component {
       html = (
         <main>
           <h2>Starship Details</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Crew Size</th>
-                <th>Model</th>
-                <th>Hyperdrive rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>{selectedShip.name}</th>
-                <th>{selectedShip.crew}</th>
-                <th>{selectedShip.model}</th>
-                <th>{selectedShip.hyperdrive_rating}</th>
-              </tr>        
-            </tbody>
-          </table>
+          <Card>
+            <CardTitle title={selectedShip.name} subtitle={selectedShip.model} />
+            <CardText>
+              <Table>
+                <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                  <TableRow>
+                    <TableHeaderColumn>Class</TableHeaderColumn>
+                    <TableHeaderColumn>Crew Size</TableHeaderColumn>
+                    <TableHeaderColumn>Hyperdrive rating</TableHeaderColumn>
+                  </TableRow>
+                </TableHeader>
+                <TableBody displayRowCheckbox={false}>
+                  <TableRow>
+                    <TableRowColumn>{selectedShip.starship_class}</TableRowColumn>
+                    <TableRowColumn>{selectedShip.crew}</TableRowColumn>
+                    <TableRowColumn>{selectedShip.hyperdrive_rating}</TableRowColumn>
+                  </TableRow>      
+                </TableBody>
+              </Table>            
+            </CardText>
+          </Card>
         </main>
       );
     }

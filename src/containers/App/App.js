@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import Divider from 'material-ui/Divider';
+import { white } from 'material-ui/styles/colors';
 import 'whatwg-fetch';
+import './App.css';
 
 import Search from '../../components/Search/Search';
+
+const tabStyles = {
+  fontSize: 18,
+  paddingTop: 8,
+  fontWeight: 400,
+};
 
 export default class App extends Component {
   constructor() {
@@ -39,13 +50,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <nav><Link to="/">Home</Link></nav>
-        <h1>A Guide to the Starships of Star Wars</h1>
+      <div className="mui-container-fluid">
+        <AppBar
+          title="A Guide to the Starships of Star Wars"
+          iconElementLeft={<Link to="/"><IconButton><ActionHome color={ white } /></IconButton></Link>}
+        />
         <Search
           searchForStarship={this.searchForStarship.bind(this)}
           starships={this.state.starships}
         />
+        <Divider />
         {this.renderChildrenWithProps(this.state)}
       </div>
     );

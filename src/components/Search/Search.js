@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 import List from '../List/List';
 
@@ -27,11 +29,17 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
-        <label>Search for starship:&nbsp;
-          <input onChange={ this.updateStarshipQuery.bind(this) } onKeyPress={ this.handleEnterKeyPress.bind(this) } type="text" placeholder={`e.g. "Death Star"`} />
-        </label>
-        <button onClick={ () => this.props.searchForStarship(this.state.starshipQuery) } type="search">Search</button>
+      <div style={{ marginTop: 24, marginBottom: 24 }}>
+        <TextField 
+          hintText="Search for starship" 
+          onChange={ this.updateStarshipQuery.bind(this) }
+          onKeyPress={ this.handleEnterKeyPress.bind(this) }
+        />        
+        <RaisedButton 
+          onClick={ () => this.props.searchForStarship(this.state.starshipQuery) } 
+          label="Search" 
+          style={{ margin: 12 }}
+        />
         <h3>Search results:</h3>
         {this.props.starships ? this.displayQueryResponse(this.props.starships) : <p>Nothing here yet...</p>}
       </div>
